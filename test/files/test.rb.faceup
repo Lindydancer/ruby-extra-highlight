@@ -1,0 +1,71 @@
+«m:### »«x:test.rb --- Test file for ruby-extra-highlight,el
+»
+
+«m:# »«x:----------------------------------------
+»«m:# »«x:Function parameters.
+»«m:#»«x:
+»
+«k:def» «f:f0»
+«k:end»
+
+«k:def» «f:f1»()
+«k:end»
+
+«k:def» «f:f2»(«v:parameter»)
+«k:end»
+
+«k:def» «f:f3»(«v:parameter1», «v:parameter2»)
+«k:end»
+
+«k:def» «f:f4»(«v:parameter1» = 10, «v:parameter2» = 20)
+«k:end»
+
+«k:def» «f:f5»(«v:parameter1» = 10, «v:parameter2» = f1(), «v:parameter3» = 0)
+«k:end»
+
+«k:def» «f:f6»(«v:parameter1» = 10, «v:parameter2» = f3(var1, var2), «v:parameter3» = 0)
+«k:end»
+
+«k:def» «f:f7»(«v:parameter1»,
+       «v:parameter2»,
+       «v:parameter3»)
+«k:end»
+
+«k:def» «f:f8»(«v:parameter»,    «m:# »«x:Comment
+»       «v:parameter»,    «m:# »«x:Another comment
+»       «v:parameter»)
+«k:end»
+
+«m:#»«x:
+»«m:# »«x:def not_in_comment(arg1, arg2, arg2)
+»«m:#»«x:
+»
+«s:"def not_in_strings(arg1, arg2, arg3)"»
+
+«m:# »«x:----------------------------------------
+»«m:# »«x:Block parameters.
+»«m:#»«x:
+»
+«k:def» «f:block1»
+  func «k:do»
+  «k:end»
+
+  func «k:do» |«v:param»|
+  «k:end»
+
+  func «k:do» |«v:param1», «v:param2»|
+    param1 + param2
+  «k:end»
+«k:end»
+
+«k:def» «f:block2»
+  func {
+  }
+
+  func { |«v:param1», «v:param2»|
+    param1 + param2
+  }
+«k:end»
+
+«m:# »«x:The end.
+»
