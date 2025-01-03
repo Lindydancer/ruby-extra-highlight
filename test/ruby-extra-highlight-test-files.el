@@ -1,4 +1,4 @@
-;;; ruby-extra-highlight-test-files.el --- Test for ruby-extra-highlight.
+;;; ruby-extra-highlight-test-files.el --- Test ruby-extra-highlight.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017 Anders Lindgren
 

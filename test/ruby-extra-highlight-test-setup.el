@@ -1,4 +1,4 @@
-;;; ruby-extra-highlight-test-setup.el --- Setup and execute all tests.
+;;; ruby-extra-highlight-test-setup.el --- Setup and execute tests.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017 Anders Lindgren
 

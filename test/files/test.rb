@@ -36,6 +36,15 @@ def f8(parameter,    # Comment
        parameter)
 end
 
+def print(o = STDOUT, indent = "")
+end
+
+# Make sure a missing closing parenthesis doesn't cause the
+# highlighthing of the text next function to fail.
+def f9(missing_parenthesis
+
+def f10(parameter)
+
 #
 # def not_in_comment(arg1, arg2, arg2)
 #

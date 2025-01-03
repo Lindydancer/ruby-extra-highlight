@@ -36,6 +36,15 @@
 »       «v:parameter»)
 «k:end»
 
+«k:def» «f:print»(«v:o» = «t:STDOUT», «v:indent» = «s:""»)
+«k:end»
+
+«m:# »«x:Make sure a missing closing parenthesis doesn't cause the
+»«m:# »«x:highlighthing of the text next function to fail.
+»«k:def» «f:f9»(«v:missing_parenthesis»
+
+«k:def» «f:f10»(«v:parameter»)
+
 «m:#»«x:
 »«m:# »«x:def not_in_comment(arg1, arg2, arg2)
 »«m:#»«x:

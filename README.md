@@ -1,7 +1,7 @@
 # ruby-extra-highlight - Highlight Ruby parameters
 
 *Author:* Anders Lindgren<br>
-*Version:* 0.0.0<br>
+*Version:* 0.0.1<br>
 *URL:* [https://github.com/Lindydancer/ruby-extra-highlight](https://github.com/Lindydancer/ruby-extra-highlight)<br>
 
 This package highlights Ruby method and block parameters.

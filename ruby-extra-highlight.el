@@ -1,11 +1,11 @@
-;;; ruby-extra-highlight.el --- Highlight Ruby parameters.
+;;; ruby-extra-highlight.el --- Highlight Ruby parameters.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
 ;; Created: 2017-09-05
-;; Version: 0.0.0
+;; Version: 0.0.1
 ;; URL: https://github.com/Lindydancer/ruby-extra-highlight
 
 ;; This program is free software: you can redistribute it and/or modify
@@ -63,7 +63,8 @@ Set match data 1 to the parameter and move point to the next parameter."
   (ruby-extra-highlight-skip-comments-and-whitespace)
   ;; Here, the point is at the beginning of a parameter, before any
   ;; `*' or `&'.
-  (if (looking-at "\\(?:[*&]\\s-*\\)*\\_<\\(\\(\\sw\\|\\s_\\)+\\)\\_>")
+  (if (and (< (point) limit)
+           (looking-at "\\(?:[*&]\\s-*\\)*\\_<\\(\\(\\sw\\|\\s_\\)+\\)\\_>"))
       ;; Found a parameter. Skip until the next parameter.
       (progn
         (goto-char (match-end 0))
@@ -75,11 +76,16 @@ Set match data 1 to the parameter and move point to the next parameter."
           ;; as in `def test(x = g(1,2), y = ...)'.  Hence, it's not
           ;; sufficient to search for the next comma.
           (condition-case nil
-              (forward-sexp)
+              ;; Note: In Ruby mode, a custom function is bound to
+              ;; `forward-sexp-function'. Unfortunately, this function
+              ;; destroys the match-data.
+              (save-match-data
+                (forward-sexp))
             (error
              (forward-char))))
         ;; Skip the `,' or the character closing the argument list.
-        (forward-char)
+        (when (memq (following-char) '(?\) ?| ?,))
+          (forward-char))
         t)
     nil))
 
